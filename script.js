@@ -4,3 +4,9 @@ function computerPlay() {
 
     console.log('The computer chose ' + comChoice);
 }
+
+computerPlay();
+
+function test() {
+    console.log("Hello, moon");
+}
