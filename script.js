@@ -6,6 +6,9 @@ function computerPlay() {
     return comChoice;
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toUpperCase()
     ,   computer = computerSelection.toUpperCase();
@@ -18,15 +21,31 @@ function playRound(playerSelection, computerSelection) {
     } else if (player === "ROCK" && computer === "SCISSORS"
             || player === "SCISSORS" && computer === "PAPER"
             || player === "PAPER" && computer === "ROCK") {
+        playerScore += 1;
         return (`You win! ${playerSelection} beats ${computerSelection}`);
     } else if (player === "ROCK" && computer === "PAPER"
             || player === "SCISSORS" && computer === "ROCK"
             || player === "PAPER" && computer === "SCISSORS") {
+        computerScore += 1;
         return (`You lose! ${computerSelection} beats ${playerSelection}`);
     }
 }
 
+function game() {
+    for (i = 1; i <= 5; i++) {
+        let playerSelection = prompt('Choose rock, paper, or scissors');
+        let computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection) + `. Round ${i} complete`);
+    }
 
-const playerSelection = "ROCK";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+    console.log(`Final: Player - ${playerScore}, Computer - ${computerScore}`)
+
+    if (playerScore > computerScore) {
+        console.log(`You beat the computer!!!`);
+    } else if (playerScore < computerScore) {
+        console.log(`The computer beat you!!!`);
+    } else {
+        console.log(`You tied with a computer?!`);
+    }
+}
+
