@@ -49,3 +49,6 @@ function game() {
     }
 }
 
+const playerChoice = document.querySelector('#game-buttons');
+playerChoice.addEventListener('click', (e) => console.log(e));
+
