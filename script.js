@@ -35,11 +35,11 @@ function playRound(player, computer) {
 }
 
 function game() {
-    for (i = 1; i <= 5; i++) {
+    /*for (i = 1; i <= 5; i++) {
         let playerSelection = prompt('Choose rock, paper, or scissors');
         let computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection) + `. Round ${i} complete`);
-    }
+    }*/
 
     console.log(`Final: Player - ${playerScore}, Computer - ${computerScore}`)
 
