@@ -1,0 +1,8 @@
+div {
+    display: flex;
+    justify-content: center;
+}
+
+.choice {
+    border: 50 px;
+}

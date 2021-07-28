@@ -3,6 +3,7 @@
 <head>
     <title>Rock, Paper, Scissors</title>
     <meta charset="UTF-8"/>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -10,12 +11,18 @@
         <input type="button" value="Start the game" onclick="game()">
         <button>Reset</button>
     </div>
-    <p>Choose rock, paper, or scissors:</p>
+    <div>
+        <p>Choose rock, paper, or scissors:</p>
+    </div>
     <div id="game-buttons">
-        <button class = "choice" value="Rock">Rock</button>
-        <button class = "choice" value="Paper">Paper</button>
-        <button class = "choice" value="Scissors">Scissors</button>
+        <button class = "choice" value="Rock">&#9994</button>
+        <button class = "choice" value="Paper">&#9995</button>
+        <button class = "choice" value="Scissors">&#9996</button>
     </div>
     <div id="results"></div>
+    <div id="score">
+        <p>Player: <span id="playerScore"></span></p>
+        <p>Computer: <span id="computerScore"></span></p>
+    </div>
 </body>
 </html>
