@@ -1,4 +1,5 @@
-const resultPanel = document.querySelector('#results');
+const playerDisplay = document.querySelector('#player');
+const computerDisplay = document.querySelector('#computer');
 const scorePanel = document.querySelector
 const playerResult = document.createElement('p');
 const computerResult = document.createElement('p');
@@ -7,17 +8,16 @@ let playerScore = 0;
 let computerScore = 0;
 
 function computerPlay() {
-    let choices = ['Rock', 'Paper', 'Scissors']
-    ,   comChoice = choices[Math.floor(Math.random() * choices.length)];
+    let choices = ['Rock', 'Paper', 'Scissors'];
 
-    return comChoice;
+    return choices[Math.floor(Math.random() * choices.length)];
 }
 
 function playRound(player, computer) {
-    playerResult.textContent = `The player chose ${player}`;
-    computerResult.textContent = `The computer chose ${computer}`;
-    resultPanel.appendChild(playerResult);
-    resultPanel.appendChild(computerResult);
+    playerResult.textContent = player;
+    computerResult.textContent = computer;
+    playerDisplay.appendChild(playerResult);
+    computerDisplay.appendChild(computerResult);
 
     if (player === computer) {
         return ("It's a tie!");

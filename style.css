@@ -1,28 +1,63 @@
-div {
+html, body {
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+
+#main-menu {
+    background-color: yellow;
+    margin: 20px 0px;
+    padding: 10px;
+}
+
+#main-buttons {
+    background-color: yellowgreen;
+    padding: 10px;
+    margin: 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.main-button {
+    border-radius: 50px;
+    padding: 20px 50px;
+    background-color: rosybrown;
+    border: none;
+}
+
+#main-description {
     display: flex;
     justify-content: center;
-    background-color: red;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .choice {
-    border: 100 px;
+    padding: 15px 32px;
     background-color: rgb(139, 180, 255);
 }
 
 #game-buttons {
-    background-color: blue;
+    background-color: rgb(243, 213, 43);
+    margin: 0px 300px 0px 300px;
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #results {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: orange;
+    justify-content: space-between;
+    background-color: white;
+    padding: 15px 100px 0px 100px;
+    margin: 50px 500px 50px 500px;
 }
 
 #score {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: yellow;
+    background-color: rgb(255, 188, 188);
 }

@@ -7,19 +7,24 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="main-menu">
-        <input type="button" value="Start the game" onclick="game()">
-        <button>Reset</button>
-    </div>
-    <div>
-        <p>Choose rock, paper, or scissors:</p>
-    </div>
+    <header id="main-menu">
+        <div id="main-buttons">
+            <button class="main-button">Start Game</button>
+            <button class="main-button">Reset</button>
+        </div>
+        <div id="main-description">
+            <p>Choose rock, paper, or scissors:</p>
+        </div>
+    </header>
     <div id="game-buttons">
         <button class = "choice" value="Rock">&#9994</button>
         <button class = "choice" value="Paper">&#9995</button>
         <button class = "choice" value="Scissors">&#9996</button>
     </div>
-    <div id="results"></div>
+    <div id="results">
+        <div id="player-result">The player chose: <span id="player" style="color: red;"></span></div>
+        <div id="computer-result">The computer chose: <span id="computer" style="color: blue;"></span></div>
+    </div>
     <div id="score">
         <p>Player: <span id="playerScore"></span></p>
         <p>Computer: <span id="computerScore"></span></p>
