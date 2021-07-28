@@ -4,6 +4,10 @@ const scorePanel = document.querySelector
 const playerResult = document.createElement('p');
 const computerResult = document.createElement('p');
 const playerChoice = document.querySelectorAll('.choice');
+const playerScoreboard = document.querySelector('#playerScore');
+const comptuerScoreboard = document.querySelector('#computerScore');
+const playerSpan = document.createElement('span');
+const computerSpan = document.createElement('span');
 let playerScore = 0;
 let computerScore = 0;
 
@@ -54,5 +58,10 @@ function game() {
 
 playerChoice.forEach(choice => choice.addEventListener('click', function (e) {
     playRound(e.composedPath()[0].value, computerPlay());
+
+    playerSpan.textContent = playerScore;
+    playerScoreboard.appendChild(playerSpan);
+    computerSpan.textContent = computerScore;
+    comptuerScoreboard.appendChild(computerSpan);
 }));
 

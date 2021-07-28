@@ -5,13 +5,12 @@ html, body {
 }
 
 #main-menu {
-    background-color: yellow;
+    background-color: rgb(0, 225, 255);
     margin: 20px 0px;
     padding: 10px;
 }
 
 #main-buttons {
-    background-color: yellowgreen;
     padding: 10px;
     margin: 0px;
     display: flex;
@@ -21,7 +20,7 @@ html, body {
 .main-button {
     border-radius: 50px;
     padding: 20px 50px;
-    background-color: rosybrown;
+    background-color: rgb(229, 255, 0);
     border: none;
 }
 
@@ -53,6 +52,10 @@ html, body {
     background-color: white;
     padding: 15px 100px 0px 100px;
     margin: 50px 500px 50px 500px;
+}
+
+#player-result, #computer-result {
+    padding-bottom: 50px;
 }
 
 #score {
