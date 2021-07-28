@@ -1,6 +1,5 @@
 const playerDisplay = document.querySelector('#player');
 const computerDisplay = document.querySelector('#computer');
-const scorePanel = document.querySelector
 const playerResult = document.createElement('p');
 const computerResult = document.createElement('p');
 const playerChoice = document.querySelectorAll('.choice');
@@ -8,8 +7,15 @@ const playerScoreboard = document.querySelector('#playerScore');
 const comptuerScoreboard = document.querySelector('#computerScore');
 const playerSpan = document.createElement('span');
 const computerSpan = document.createElement('span');
+const message = document.querySelector('#game-message');
+const messageContent = document.createElement('p');
 let playerScore = 0;
 let computerScore = 0;
+
+playerSpan.textContent = playerScore;
+playerScoreboard.appendChild(playerSpan);
+computerSpan.textContent = computerScore;
+comptuerScoreboard.appendChild(computerSpan);
 
 function computerPlay() {
     let choices = ['Rock', 'Paper', 'Scissors'];
@@ -24,17 +30,20 @@ function playRound(player, computer) {
     computerDisplay.appendChild(computerResult);
 
     if (player === computer) {
-        return ("It's a tie!");
+        messageContent.textContent = `It's a tie!`;
+        message.appendChild(messageContent);
     } else if (player === "Rock" && computer === "Scissors" ||
                player === "Scissors" && computer === "Paper" ||
                player === "Paper" && computer === "Rock") {
         playerScore += 1;
-        return (`You win! ${player} beats ${computer}`);
+        messageContent.textContent = `You win! ${player} beats ${computer}`;
+        message.appendChild(messageContent);
     } else if (player === "Rock" && computer === "Paper" ||
                player === "Scissors" && computer === "Rock" ||
                player === "Paper" && computer === "Scissors") {
         computerScore += 1;
-        return (`You lose! ${computer} beats ${player}`);
+        messageContent.textContent = `You lose! ${computer} beats ${player}`;
+        message.appendChild(messageContent);
     }
 }
 
@@ -45,15 +54,28 @@ function game() {
         console.log(playRound(playerSelection, computerSelection) + `. Round ${i} complete`);
     }*/
 
-    console.log(`Final: Player - ${playerScore}, Computer - ${computerScore}`)
+    reset();
 
-    if (playerScore > computerScore) {
-        console.log(`You beat the computer!!!`);
-    } else if (playerScore < computerScore) {
-        console.log(`The computer beat you!!!`);
-    } else {
-        console.log(`You tied with a computer?!`);
-    }
+        if (playerScore === 5) {
+            alert(`You beat the computer!!!`);
+        } else if (computerScore === 5) {
+            alert(`The computer beat you!!!`);
+        }
+
+    console.log(`Final: Player - ${playerScore}, Computer - ${computerScore}`);
+}
+
+function reset() {
+    playerDisplay.removeChild(playerResult);
+    computerDisplay.removeChild(computerResult);
+    message.removeChild(messageContent);
+
+    playerScore = 0;
+    computerScore = 0;
+    playerSpan.textContent = playerScore;
+    playerScoreboard.appendChild(playerSpan);
+    computerSpan.textContent = computerScore;
+    comptuerScoreboard.appendChild(computerSpan);
 }
 
 playerChoice.forEach(choice => choice.addEventListener('click', function (e) {
@@ -63,5 +85,11 @@ playerChoice.forEach(choice => choice.addEventListener('click', function (e) {
     playerScoreboard.appendChild(playerSpan);
     computerSpan.textContent = computerScore;
     comptuerScoreboard.appendChild(computerSpan);
+
+    if (playerScore === 5) {
+        alert(`You beat the computer!!!`);
+    } else if (computerScore === 5) {
+        alert(`The computer beat you!!!`);
+    }
 }));
 
