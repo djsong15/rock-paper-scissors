@@ -2,7 +2,6 @@ function computerPlay() {
     let choices = ['Rock', 'Paper', 'Scissors']
     ,   comChoice = choices[Math.floor(Math.random() * choices.length)];
 
-    //console.log('The computer chose ' + comChoice);
     return comChoice;
 }
 
@@ -49,6 +48,7 @@ function game() {
     }
 }
 
-const playerChoice = document.querySelector('#game-buttons');
-playerChoice.addEventListener('click', (e) => console.log(e));
-
+const playerChoice = document.querySelectorAll('.choice');
+playerChoice.forEach(choice => choice.addEventListener('click', function (e) {
+    playRound(e.composedPath()[0].value, computerPlay());
+}));
