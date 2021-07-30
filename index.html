@@ -5,32 +5,33 @@
     <meta charset="UTF-8"/>
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <div id="main-buttons">
-        <button class="main-button" onclick="game()">Start Game</button>
-        <button class="main-button" onclick="reset()">Reset</button>
-    </div>
-    <div id="game-ui">
+    <div id="app">
+        <div id="main-buttons">
+            <button id="start-button" class="main-button">Start Game</button>
+            <button class="main-button" onclick="reset()">Reset</button>
+        </div>
         <div id="instructions">
             <p>Choose rock, paper, or scissors:</p>
         </div>
         <div id="game-buttons">
-            <button class = "choice" value="Rock">&#9994</button>
-            <button class = "choice" value="Paper">&#9995</button>
-            <button class = "choice" value="Scissors">&#9996</button>
+            <button class="choice" value="Rock">&#9994</button>
+            <button class="choice" value="Paper">&#9995</button>
+            <button class="choice" value="Scissors">&#9996</button>
         </div>
-    </div>
-    <div id="results">
+        <div id="results">
+            <div id="playfield">
+                <div id="player-result">The player chose: <span id="player" style="color: blue;"></span></div>
+                <div id="computer-result">The computer chose: <span id="computer" style="color: red;"></span></div>
+            </div>
+            <div id="game-message"></div>
+        </div>
         <div id="scoreboard">
-            <div id="player-result">The player chose: <span id="player" style="color: red;"></span></div>
-            <div id="computer-result">The computer chose: <span id="computer" style="color: blue;"></span></div>
+            <div id="player-score">Player: <span id="playerScore"></span></div>
+            <div id="computer-score">Computer: <span id="computerScore"></span></div>
         </div>
-        <div id="game-message"></div>
-    </div>
-    <div id="score">
-        <div id="player-score">Player: <span id="playerScore"></span></div>
-        <div id="computer-score">Computer: <span id="computerScore"></span></div>
     </div>
 </body>
 </html>

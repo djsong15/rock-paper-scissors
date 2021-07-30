@@ -47,14 +47,17 @@ function playRound(player, computer) {
     }
 }
 
-function game() {
-    /*for (i = 1; i <= 5; i++) {
+/*function game() {
+    for (i = 1; i <= 5; i++) {
         let playerSelection = prompt('Choose rock, paper, or scissors');
         let computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection) + `. Round ${i} complete`);
-    }*/
+    }
 
-    reset();
+    //reset();
+    console.log(playerSpan.innerHTML);
+
+
 
         if (playerScore === 5) {
             alert(`You beat the computer!!!`);
@@ -63,7 +66,7 @@ function game() {
         }
 
     console.log(`Final: Player - ${playerScore}, Computer - ${computerScore}`);
-}
+}*/
 
 function reset() {
     playerDisplay.removeChild(playerResult);
@@ -72,24 +75,33 @@ function reset() {
 
     playerScore = 0;
     computerScore = 0;
-    playerSpan.textContent = playerScore;
-    playerScoreboard.appendChild(playerSpan);
-    computerSpan.textContent = computerScore;
-    comptuerScoreboard.appendChild(computerSpan);
+    playerSpan.innerHTML = playerScore;
+    computerSpan.innerHTML = computerScore;
+
+    $('button#start-button').toggleClass("on");
 }
 
 playerChoice.forEach(choice => choice.addEventListener('click', function (e) {
     playRound(e.composedPath()[0].value, computerPlay());
 
-    playerSpan.textContent = playerScore;
-    playerScoreboard.appendChild(playerSpan);
-    computerSpan.textContent = computerScore;
-    comptuerScoreboard.appendChild(computerSpan);
-
-    if (playerScore === 5) {
-        alert(`You beat the computer!!!`);
-    } else if (computerScore === 5) {
-        alert(`The computer beat you!!!`);
-    }
+    playerSpan.innerHTML = playerScore;
+    computerSpan.innerHTML = computerScore;
 }));
 
+$(document).ready(function() {
+    $('button#start-button').click(function() {
+      $(this).toggleClass("on");
+    });
+});
+
+const startButton = document.getElementById('start-button');
+console.log(startButton.classList.contains('main-button'));
+while (startButton.classList.contains("main-button on") == true) {
+    console.log(playerSpan);
+    console.log(computerSpan);
+    if (playerSpan == 5) {
+        alert(`You beat the computer!!!`);
+    } else if (computerSpan == 5) {
+        alert(`The computer beat you!!!`);
+    };
+};
