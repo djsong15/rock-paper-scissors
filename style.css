@@ -53,11 +53,11 @@ button:active {
 #game-buttons {
     background-color: #EF3E42;
     border: 1px solid #A5ACAF;
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 0px 30px;
     padding: 20px 30px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .choice {

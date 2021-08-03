@@ -71,10 +71,15 @@ function playRound(player, computer) {
     console.log(`Final: Player - ${playerScore}, Computer - ${computerScore}`);
 }*/
 
-function reset() {
-    playerDisplay.textContent = '';
-    computerDisplay.textContent = '';
-    message.textContent = '';
+playerChoice.forEach(choice => choice.addEventListener('click', function (e) {
+    playRound(e.composedPath()[0].value, computerPlay());
+}));
+
+const resetBtn = document.querySelector('#reset');
+resetBtn.addEventListener('click', () => {
+    playerDisplay.textContent = 'n/a';
+    computerDisplay.textContent = 'n/a';
+    message.textContent = 'Select a button above';
 
     playerScore = 0;
     computerScore = 0;
@@ -82,8 +87,4 @@ function reset() {
     computerScoreboard.textContent = computerScore;
 
     appContainer.removeChild(div);
-};
-
-playerChoice.forEach(choice => choice.addEventListener('click', function (e) {
-    playRound(e.composedPath()[0].value, computerPlay());
-}));
+});
