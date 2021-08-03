@@ -29,13 +29,6 @@ button:active {
     transform: translateY(2px);
 }
 
-#start-button.on {
-    box-shadow: 0 3px;
-    background-color: #003458;
-    transform: translateY(2px);
-    color: #EF3E42
-}
-
 #main-buttons {
     padding: 10px;
     margin: 0px;

@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <div id="main-buttons">
-            <button id="start-button" class="main-button">Start Game</button>
+            <!-- <button id="start-button" class="main-button">Start Game</button> -->
             <button class="main-button" onclick="reset()">Reset</button>
         </div>
         <div id="instructions">
@@ -23,14 +23,15 @@
         </div>
         <div id="results">
             <div id="playfield">
-                <div id="player-result">The player chose: <span id="player" style="color: blue;"></span></div>
-                <div id="computer-result">The computer chose: <span id="computer" style="color: red;"></span></div>
+                <div id="player-result">The player chose: <br><span id="player" style="color: blue;">n/a</span></div>
+                <div id="computer-result">The computer chose: <br><span id="computer" style="color: red;">n/a</span></div>
             </div>
-            <div id="game-message"></div>
+            <br>
+            <div id="game-message">Select a button above</div>
         </div>
         <div id="scoreboard">
-            <div id="player-score">Player: <span id="playerScore"></span></div>
-            <div id="computer-score">Computer: <span id="computerScore"></span></div>
+            <div id="player-score">Player: <span class="score" id="playerScore"></span></div>
+            <div id="computer-score">Computer: <span class="score" id="computerScore"></span></div>
         </div>
     </div>
 </body>

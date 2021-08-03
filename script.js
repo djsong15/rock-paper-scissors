@@ -1,21 +1,15 @@
 const playerDisplay = document.querySelector('#player');
 const computerDisplay = document.querySelector('#computer');
-const playerResult = document.createElement('p');
-const computerResult = document.createElement('p');
 const playerChoice = document.querySelectorAll('.choice');
 const playerScoreboard = document.querySelector('#playerScore');
-const comptuerScoreboard = document.querySelector('#computerScore');
-const playerSpan = document.createElement('span');
-const computerSpan = document.createElement('span');
+const computerScoreboard = document.querySelector('#computerScore');
+const score = document.querySelectorAll('.score');
 const message = document.querySelector('#game-message');
-const messageContent = document.createElement('p');
 let playerScore = 0;
 let computerScore = 0;
 
-playerSpan.textContent = playerScore;
-playerScoreboard.appendChild(playerSpan);
-computerSpan.textContent = computerScore;
-comptuerScoreboard.appendChild(computerSpan);
+playerScoreboard.innerHTML = playerScore;
+computerScoreboard.innerHTML = computerScore;
 
 function computerPlay() {
     let choices = ['Rock', 'Paper', 'Scissors'];
@@ -24,26 +18,27 @@ function computerPlay() {
 }
 
 function playRound(player, computer) {
-    playerResult.textContent = player;
-    computerResult.textContent = computer;
-    playerDisplay.appendChild(playerResult);
-    computerDisplay.appendChild(computerResult);
+    playerDisplay.innerHTML = player;
+    computerDisplay.innerHTML = computer;
 
     if (player === computer) {
-        messageContent.textContent = `It's a tie!`;
-        message.appendChild(messageContent);
+        message.innerHTML = `It's a tie!`;
     } else if (player === "Rock" && computer === "Scissors" ||
                player === "Scissors" && computer === "Paper" ||
                player === "Paper" && computer === "Rock") {
         playerScore += 1;
-        messageContent.textContent = `You win! ${player} beats ${computer}`;
-        message.appendChild(messageContent);
+        message.innerHTML = `You win! ${player} beats ${computer}`;;
     } else if (player === "Rock" && computer === "Paper" ||
                player === "Scissors" && computer === "Rock" ||
                player === "Paper" && computer === "Scissors") {
         computerScore += 1;
-        messageContent.textContent = `You lose! ${computer} beats ${player}`;
-        message.appendChild(messageContent);
+        message.innerHTML = `You lose! ${computer} beats ${player}`;;
+    }
+
+    if (playerScore == 5 && playerScore > computerScore) {
+        alert(`You beat the computer!!!`);
+    } else if (computerScore == 5 && computerScore > playerScore) {
+        alert(`The computer beat you!!!`);
     }
 }
 
@@ -69,39 +64,23 @@ function playRound(player, computer) {
 }*/
 
 function reset() {
-    playerDisplay.removeChild(playerResult);
-    computerDisplay.removeChild(computerResult);
-    message.removeChild(messageContent);
+    playerDisplay.innerHTML = '';
+    computerDisplay.innerHTML = '';
+    message.innerHTML = '';
 
     playerScore = 0;
     computerScore = 0;
-    playerSpan.innerHTML = playerScore;
-    computerSpan.innerHTML = computerScore;
-
-    $('button#start-button').toggleClass("on");
+    playerScoreboard.innerHTML = playerScore;
+    computerScoreboard.innerHTML = computerScore;
 }
 
 playerChoice.forEach(choice => choice.addEventListener('click', function (e) {
     playRound(e.composedPath()[0].value, computerPlay());
 
-    playerSpan.innerHTML = playerScore;
-    computerSpan.innerHTML = computerScore;
+    playerScoreboard.innerHTML = playerScore;
+    computerScoreboard.innerHTML = computerScore;
+
+
 }));
 
-$(document).ready(function() {
-    $('button#start-button').click(function() {
-      $(this).toggleClass("on");
-    });
-});
-
-const startButton = document.getElementById('start-button');
-console.log(startButton.classList.contains('main-button'));
-while (startButton.classList.contains("main-button on") == true) {
-    console.log(playerSpan);
-    console.log(computerSpan);
-    if (playerSpan == 5) {
-        alert(`You beat the computer!!!`);
-    } else if (computerSpan == 5) {
-        alert(`The computer beat you!!!`);
-    };
-};
+score.forEach(value => value.addEventListener(''))
